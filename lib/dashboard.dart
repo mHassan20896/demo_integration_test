@@ -7,7 +7,7 @@ class Dashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
+        child: ListView(
           children: [
             const SizedBox(height: 20),
             Padding(
@@ -28,7 +28,20 @@ class Dashboard extends StatelessWidget {
               indent: 16.0,
               endIndent: 16.0,
             ),
-            const Text('Home')
+            const ListTile(
+                title: Text(
+              'Home',
+              key: Key('Home'),
+            )),
+            ...List.generate(
+              100,
+              (index) => ListTile(
+                title: Text(
+                  "Tile $index",
+                  key: Key("Tile $index"),
+                ),
+              ),
+            )
           ],
         ),
       ),
